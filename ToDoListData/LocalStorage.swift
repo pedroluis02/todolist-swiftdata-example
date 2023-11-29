@@ -1,10 +1,9 @@
+//https://www.hackingwithswift.com/quick-start/swiftdata/how-to-use-mvvm-to-separate-swiftdata-from-your-views
+
 import SwiftData
 
-class StorageContext {
-    static var shared: StorageContext = {
-        let instance = StorageContext()
-        return instance
-    }()
+class LocalStorage {
+    static let shared = LocalStorage()
     
     let modelContext: ModelContext
     
@@ -13,8 +12,9 @@ class StorageContext {
     }
     
     private func createModelContext() -> ModelContext {
-        let modelContainer = try! ModelContainer(for: TaskModel.self)
+        let configuration = ModelConfiguration(isStoredInMemoryOnly: true, allowsSave: false)
+        let modelContainer = try! ModelContainer(for: TaskModel.self, configurations: configuration)
+        
         return ModelContext(modelContainer)
     }
 }
-
