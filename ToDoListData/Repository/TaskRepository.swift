@@ -2,12 +2,17 @@ import ToDoListDomain
 
 public class TaskRepository: TaskRepositoryProtocol {
     private let dao: TaskDao = TaskDao()
+    private let mapper: TaskModelMapper = TaskModelMapper()
     
-    public func getAll() -> [Task] {
-        <#code#>
+    public func findAll() -> [Task] {
+        let result = dao.fecthAll()
+        return result.map(mapper.toDomain)
     }
     
     public func save(model: Task) -> Task {
-        <#code#>
+        let taskModel = mapper.toSave(model);
+        dao.insert(taskModel)
+        
+        return mapper.toDomain(taskModel)
     }
 }

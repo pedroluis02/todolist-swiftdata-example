@@ -1,4 +1,4 @@
 public protocol TaskRepositoryProtocol {
-    func getAll() -> [Task]
+    func findAll() -> [Task]
     func save(model: Task) -> Task
 }
