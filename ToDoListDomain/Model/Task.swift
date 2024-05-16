@@ -1,17 +1,17 @@
 import Foundation
 
 public struct Task {
-    var uuid: UUID
-    var name: String
-    var description: String
-    var status: TaskStatus
-    var createdAt: Date
-}
-
-public enum TaskStatus: String {
-    case none
-    case created
-    case pending
-    case canceled
-    case done
+    public var uuid: UUID
+    public var name: String
+    public var description: String
+    public var status: TaskStatus
+    public var createdAt: Date
+    
+    public init(uuid: UUID, name: String, description: String, status: TaskStatus, createdAt: Date) {
+        self.uuid = uuid
+        self.name = name
+        self.description = description
+        self.status = status
+        self.createdAt = createdAt
+    }
 }
