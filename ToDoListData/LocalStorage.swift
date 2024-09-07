@@ -5,7 +5,7 @@ import SwiftData
 class LocalStorage {
     static let shared = LocalStorage()
     
-    let modelContext: ModelContext
+    private(set) var modelContext: ModelContext!
     
     private init() {
         self.modelContext = createModelContext()
