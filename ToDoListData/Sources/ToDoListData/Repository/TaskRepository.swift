@@ -6,7 +6,7 @@ public class TaskRepository: TaskRepositoryProtocol {
     
     public func findAll() -> [Task] {
         let result = dao.fecthAll()
-        return result.map(mapper.toDomain)
+        return result.map(mapper.toDomain) 
     }
     
     public func save(model: Task) -> Task {

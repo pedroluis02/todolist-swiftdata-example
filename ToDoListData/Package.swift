@@ -11,7 +11,6 @@ let package = Package(
     products: [
         .library(
             name: "ToDoListData",
-            type: .dynamic,
             targets: ["ToDoListData"]
         )
     ],
@@ -22,9 +21,12 @@ let package = Package(
         .target(
             name: "ToDoListData",
             dependencies: [
-                .product(name: "ToDoListDomain", package: "ToDoListDomain", condition: nil)
-            ],
-            path: "."
+                .product(name: "ToDoListDomain", package: "ToDoListDomain")
+            ]
+        ),
+        .testTarget(
+            name: "ToDoListDataTests",
+            dependencies: ["ToDoListData"]
         )
     ]
 )

@@ -1,10 +1,11 @@
 import XCTest
+@testable import ToDoListData
 
 final class LocalStorageTests: XCTestCase {
-    private let localStorage = LocalStorage.shared
-    
-    func testModelContextInit() {
-        let modelContext = localStorage.modelContext
-        XCTAssertNotNil(modelContext)
+    func testModelContainerAndContextInit() async throws {
+        let localStorage = await LocalStorage.shared
+        
+        XCTAssertNotNil(localStorage.modelContainer)
+        XCTAssertNotNil(localStorage.modelContext)
     }
 }

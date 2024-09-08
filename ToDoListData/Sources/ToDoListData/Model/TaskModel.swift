@@ -3,7 +3,7 @@ import SwiftData
 
 @Model
 final class TaskModel {
-    var uuid: UUID
+    @Attribute(.unique) var uuid: UUID
     var name: String
     var status: String
     var createdAt: Date

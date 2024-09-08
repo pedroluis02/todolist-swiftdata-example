@@ -34,6 +34,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AA99B5D72C8BFB4100FBF56B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AA12C7822B0ACCFE00A9757C /* ToDoListExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA12C7852B0ACCFE00A9757C /* ToDoListExampleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListExampleAppApp.swift; sourceTree = "<group>"; };
@@ -89,6 +102,7 @@
 				AA12C7982B0ACD0100A9757C /* ToDoListExampleAppTests */,
 				AA12C7A22B0ACD0100A9757C /* ToDoListExampleAppUITests */,
 				AA12C7832B0ACCFE00A9757C /* Products */,
+				AA99B5D32C8BFB4100FBF56B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +154,13 @@
 			path = ToDoListExampleAppUITests;
 			sourceTree = "<group>";
 		};
+		AA99B5D32C8BFB4100FBF56B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +171,7 @@
 				AA12C77E2B0ACCFE00A9757C /* Sources */,
 				AA12C77F2B0ACCFE00A9757C /* Frameworks */,
 				AA12C7802B0ACCFE00A9757C /* Resources */,
+				AA99B5D72C8BFB4100FBF56B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
