@@ -5,6 +5,7 @@ import ToDoListData
 
 struct ContentView: View {
     @State private var viewModel = TaskViewModel()
+    @State private var showingPopover = false
 
     var body: some View {
         NavigationSplitView {
@@ -28,8 +29,13 @@ struct ContentView: View {
                 }
 #endif
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: { showingPopover = true }) {
                         Label("Add Item", systemImage: "plus")
+                    }.popover(isPresented: $showingPopover, arrowEdge: .bottom) {
+                        NewTaskView { model in
+                            showingPopover = false
+                            addItem(model)
+                        }
                     }
                 }
             }
@@ -45,6 +51,12 @@ struct ContentView: View {
         }
     }
 
+    private func addItem(_ model: ToDoTask) {
+        withAnimation {
+            viewModel.add(model: model)
+        }
+    }
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             //empty block
