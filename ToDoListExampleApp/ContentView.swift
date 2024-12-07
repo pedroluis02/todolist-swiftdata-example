@@ -12,9 +12,13 @@ struct ContentView: View {
             List {
                 ForEach(viewModel.items, id: \.id) { item in
                     NavigationLink {
-                        Text(item.name)
+                        Text(item.name).bold().font(.title)
+                        Text(item.description)
                     } label: {
-                        Text(item.name)
+                        VStack(alignment: .leading) {
+                            Text(item.name).bold()
+                            Text(item.description).font(.caption)
+                        }
                     }
                 }
                 .onDelete(perform: deleteItems)
