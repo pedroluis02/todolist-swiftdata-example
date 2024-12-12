@@ -2,33 +2,24 @@ import Foundation
 import SwiftUI
 import ToDoListDomain
 
-typealias OnSaveAction = ((ToDoTask) -> Void)
-
 struct NewTaskView: View {
-    @State private var name = ""
-    @State private var description = ""
-    
-    let onSave: OnSaveAction?
+    @State private var viewModel: NewTaskViewModel
     
     init(onSave: OnSaveAction? = nil) {
-        self.onSave = onSave
+        self.viewModel = NewTaskViewModel(onSave: onSave)
     }
     
     var body: some View {
         Form {
-            initTextField(TextField("Name", text: $name))
-            initTextField(TextField("Description", text: $description))
+            initTextField(TextField("Name", text: $viewModel.name))
+            initTextField(TextField("Description", text: $viewModel.description))
             
             Spacer(minLength: 24)
             
-            Button(action: { tryToSave() } ) {
+            Button(action: viewModel.save) {
                 Text("Save")
             }
         }.padding()
-    }
-    
-    private func tryToSave() {
-        onSave?(ToDoTask(name: name, description: description))
     }
     
     private func initTextField(_ view: some View) -> some View {
