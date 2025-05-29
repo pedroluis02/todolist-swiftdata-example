@@ -4,7 +4,7 @@ import ToDoListData
 import ToDoListDomain
 
 struct ContentView: View {
-    @State private var viewModel = TaskViewModel()
+    @State private var viewModel = uiContainer.resolve(TaskViewModel.self)!
     @State private var showingPopover = false
 
     var body: some View {

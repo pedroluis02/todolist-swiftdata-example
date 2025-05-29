@@ -9,7 +9,7 @@ class TaskViewModel {
 
     var items: [ToDoTask] = []
 
-    init(repository: ToDoTaskRepository = TaskRepositoryImpl()) {
+    init(repository: ToDoTaskRepository) {
         self.repository = repository
         self.fetchAll()
     }
