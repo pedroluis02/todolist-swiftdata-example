@@ -15,13 +15,15 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../ToDoListDomain")
+        .package(path: "../ToDoListDomain"),
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1")
     ],
     targets: [
         .target(
             name: "ToDoListData",
             dependencies: [
-                .product(name: "ToDoListDomain", package: "ToDoListDomain")
+                .product(name: "ToDoListDomain", package: "ToDoListDomain"),
+                "Swinject"
             ]
         ),
         .testTarget(
