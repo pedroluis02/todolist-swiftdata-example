@@ -3,15 +3,15 @@ import SwiftData
 final class LocalStorage {
     @MainActor
     static let shared = LocalStorage()
-    
+
     let modelContainer: ModelContainer
     let modelContext: ModelContext
-    
+
     @MainActor
     private init() {
         self.modelContainer = {
             let schema = Schema([
-                TaskModel.self,
+                TaskModel.self
             ])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
 

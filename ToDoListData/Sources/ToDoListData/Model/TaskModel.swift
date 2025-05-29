@@ -8,7 +8,7 @@ final class TaskModel {
     var desc: String
     var status: String
     var createdAt: Date
-    
+
     init(name: String, description: String, status: String, createdAt: Date) {
         self.uuid = UUID()
         self.name = name

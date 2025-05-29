@@ -1,7 +1,7 @@
-import SwiftUI
 import SwiftData
-import ToDoListDomain
+import SwiftUI
 import ToDoListData
+import ToDoListDomain
 
 struct ContentView: View {
     @State private var viewModel = TaskViewModel()
@@ -23,15 +23,15 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
+            #if os(macOS)
+                .navigationSplitViewColumnWidth(min: 180, ideal: 200)
+            #endif
             .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
+                #if os(iOS)
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                #endif
                 ToolbarItem {
                     Button(action: { showingPopover = true }) {
                         Label("Add Item", systemImage: "plus")
@@ -60,7 +60,7 @@ struct ContentView: View {
             viewModel.add(model: model)
         }
     }
-    
+
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             //empty block
