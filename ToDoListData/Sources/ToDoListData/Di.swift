@@ -1,5 +1,5 @@
-import ToDoListDomain
 import Swinject
+import ToDoListDomain
 
 private func createContainer() -> Container {
     let container = Container()
