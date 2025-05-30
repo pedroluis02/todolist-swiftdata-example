@@ -21,3 +21,8 @@ ToDo List - Swift Data Example
 ### Delete items on MacOs
 
 - https://stackoverflow.com/questions/74761529/why-is-ondelete-not-working-for-macos-app
+
+### Dependency Injection: Swinject
+- https://www.swiftanytime.com/blog/dependency-injection-in-swift
+- https://github.com/Swinject/Swinject?tab=readme-ov-file
+- Examples: https://github.com/Swinject/SwinjectMVVMExample
