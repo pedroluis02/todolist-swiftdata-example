@@ -2,9 +2,9 @@ import Foundation
 import SwiftData
 
 class TaskDao {
-    private let dataStorage: LocalStorage
-
-    init(dataStorage: LocalStorage = LocalStorage.shared) {
+    private let dataStorage: DataStorage
+    
+    init(dataStorage: DataStorage = LocalStorage.shared) {
         self.dataStorage = dataStorage
     }
 
@@ -20,7 +20,8 @@ class TaskDao {
         )
 
         let modelContext = dataStorage.modelContext
-        return try? modelContext.fetch<TaskModel>(descriptor).first
+        let array = try? modelContext.fetch(descriptor)
+        return array?.first
     }
 
     func insert(_ model: TaskModel) {

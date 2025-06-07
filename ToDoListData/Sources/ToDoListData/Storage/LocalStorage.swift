@@ -1,14 +1,12 @@
 import SwiftData
 
-final class LocalStorage {
-    @MainActor
+final class LocalStorage: DataStorage {
     static let shared = LocalStorage()
 
     let modelContainer: ModelContainer
     let modelContext: ModelContext
 
-    @MainActor
-    private init() {
+    private init(){
         self.modelContainer = {
             let schema = Schema([
                 TaskModel.self
@@ -21,6 +19,6 @@ final class LocalStorage {
                 fatalError("Could not create ModelContainer: \(error)")
             }
         }()
-        self.modelContext = modelContainer.mainContext
+        self.modelContext = ModelContext(self.modelContainer)
     }
 }
