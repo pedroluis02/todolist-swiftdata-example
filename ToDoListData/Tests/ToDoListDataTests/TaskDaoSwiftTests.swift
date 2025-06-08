@@ -1,18 +1,30 @@
 import Foundation
+import SwiftData
 import Testing
 
 @testable import ToDoListData
 
-struct TaskDaoSwiftTests {
+final class TaskDaoSwiftTests {
+    let container: ModelContainer
+
+    init() throws {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        container = try ModelContainer(for: TaskModel.self, configurations: config)
+    }
 
     @Test("Test ToDo insertion")
-    func insertion() {
-        let dao = TaskDao()
+    func insertion() async throws {
+        let dao = TaskDao(modelContainer: container)
 
         let model = TaskModel(name: "Task1", description: "", status: "created", createdAt: Date())
-        dao.insert(model)
+        let inserted = await dao.insert(model)
 
-        let storedModel = dao.fetchById(model.uuid)
+        #expect(inserted)
+        let storedModel = await dao.fetchById(model.uuid)
         #expect(storedModel != nil)
+    }
+
+    deinit {
+        container.deleteAllData()
     }
 }

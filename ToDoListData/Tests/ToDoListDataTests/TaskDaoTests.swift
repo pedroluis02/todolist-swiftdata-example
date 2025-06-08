@@ -1,16 +1,28 @@
+import SwiftData
 import XCTest
 
 @testable import ToDoListData
 
 final class TaskDaoTests: XCTestCase {
+    var container: ModelContainer!
 
-    func testInsertion() {
-        let dao = TaskDao()
+    override func setUpWithError() throws {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        container = try ModelContainer(for: TaskModel.self, configurations: config)
+    }
+
+    func testInsertion() async throws {
+        let dao = TaskDao(modelContainer: LocalStorage.shared.modelContainer)
 
         let model = TaskModel(name: "Task1", description: "", status: "created", createdAt: Date())
-        dao.insert(model)
+        let inserted = await dao.insert(model)
 
-        let storedModel = dao.fetchById(model.uuid)
+        XCTAssert(inserted)
+        let storedModel = await dao.fetchById(model.uuid)
         XCTAssertNotNil(storedModel)
+    }
+
+    override func tearDown() {
+        container.deleteAllData()
     }
 }
