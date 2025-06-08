@@ -5,11 +5,11 @@ import XCTest
 final class LocalStorageTests: XCTestCase {
 
     func testContainerAndContextModelInit() throws {
-        let dataStore = LocalStorage.shared
-        let config = dataStore.modelContainer.configurations.first
+        let container = LocalStorage.shared.modelContainer
+        let config = container.configurations.first
 
-        XCTAssertNotNil(config!)
-        
+        XCTAssertNotNil(config)
+
         let scheme = config!.schema!
         XCTAssertNotNil(scheme.entities.count > 0)
     }

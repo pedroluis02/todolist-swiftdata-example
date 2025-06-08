@@ -6,8 +6,8 @@ struct LocalStorageSwiftTests {
 
     @Test("Test container and context model init")
     func containerAndContextModelInit() {
-        let dataStorage = LocalStorage.shared
-        let config = dataStorage.modelContainer.configurations.first
+        let container = LocalStorage.shared.modelContainer
+        let config = container.configurations.first
 
         #expect(config != nil)
 
