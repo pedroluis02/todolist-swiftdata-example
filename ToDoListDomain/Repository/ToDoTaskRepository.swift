@@ -1,4 +1,5 @@
+@available(macOS 10.15.0, *)
 public protocol ToDoTaskRepository {
-    func findAll() -> [ToDoTask]
-    func save(model: ToDoTask) -> ToDoTask
+    func findAll() async -> [ToDoTask]
+    func save(model: ToDoTask) async -> ToDoTask?
 }
