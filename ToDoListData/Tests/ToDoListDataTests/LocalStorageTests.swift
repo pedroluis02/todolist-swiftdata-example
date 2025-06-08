@@ -4,7 +4,7 @@ import XCTest
 
 final class LocalStorageTests: XCTestCase {
 
-    func testModelContainerAndContextInit() throws {
+    func testContainerAndContextModelInit() throws {
         let dataStore = LocalStorage.shared
         let config = dataStore.modelContainer.configurations.first
 
