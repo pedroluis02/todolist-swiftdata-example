@@ -4,7 +4,6 @@ final class LocalStorage: DataStorage {
     static let shared = LocalStorage()
 
     let modelContainer: ModelContainer
-    let modelContext: ModelContext
 
     private init() {
         self.modelContainer = {
@@ -19,6 +18,5 @@ final class LocalStorage: DataStorage {
                 fatalError("Could not create ModelContainer: \(error)")
             }
         }()
-        self.modelContext = ModelContext(self.modelContainer) 
     }
 }
