@@ -1,16 +1,11 @@
 import Foundation
 import SwiftData
 
-class TaskDao {
-    private let dataStorage: DataStorage
-
-    init(dataStorage: DataStorage = LocalStorage.shared) {
-        self.dataStorage = dataStorage
-    }
+@ModelActor
+actor TaskDao {
 
     func fecthAll() -> [TaskModel] {
         let descriptor = FetchDescriptor<TaskModel>()
-        let modelContext = dataStorage.modelContext
         return try! modelContext.fetch(descriptor)
     }
 
@@ -19,13 +14,17 @@ class TaskDao {
             predicate: #Predicate { $0.uuid == uuid }
         )
 
-        let modelContext = dataStorage.modelContext
         let array = try? modelContext.fetch(descriptor)
         return array?.first
     }
 
-    func insert(_ model: TaskModel) {
-        let modelContext = dataStorage.modelContext
+    func insert(_ model: TaskModel) -> Bool {
         modelContext.insert(model)
+        do {
+            try modelContext.save()
+            return true
+        } catch {
+            return false
+        }
     }
 }

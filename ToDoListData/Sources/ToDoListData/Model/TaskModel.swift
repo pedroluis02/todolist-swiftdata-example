@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class TaskModel {
+final class TaskModel: Sendable {
     @Attribute(.unique) var uuid: UUID
     var name: String
     var desc: String
