@@ -2,7 +2,8 @@ import XCTest
 
 @testable import ToDoListData
 
-final class TaskTests: XCTestCase {
+final class TaskDaoTests: XCTestCase {
+
     func testInsertion() {
         let dao = TaskDao()
 
