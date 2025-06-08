@@ -15,11 +15,15 @@ class TaskViewModel {
     }
 
     func fetchAll() {
-        items = repository.findAll()
+        Task {
+            items = await repository.findAll()
+        }
     }
 
     func add(model: ToDoTask) {
-        _ = repository.save(model: model)
-        fetchAll()
+        Task {
+            _ = await repository.save(model: model)
+            fetchAll()
+        }
     }
 }
