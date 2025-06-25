@@ -18,6 +18,7 @@
 		AA4CFDC12CB754E1000066FE /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CFDC02CB754D2000066FE /* NewTaskView.swift */; };
 		AAB560092CA12CD300B244E6 /* ToDoListData in Frameworks */ = {isa = PBXBuildFile; productRef = AAB560082CA12CD300B244E6 /* ToDoListData */; };
 		AAB5600D2CA12D9500B244E6 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB5600C2CA12D9500B244E6 /* TaskViewModel.swift */; };
+		AAC4785E2E05E5210074312F /* NewTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4785D2E05E5210074312F /* NewTaskViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		AA4CFDC02CB754D2000066FE /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		AAB3B8172B16D3550060E9ED /* ToDoListData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ToDoListData; sourceTree = "<group>"; };
 		AAB5600C2CA12D9500B244E6 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		AAC4785D2E05E5210074312F /* NewTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModelTests.swift; sourceTree = "<group>"; };
 		AAEBA3E32B16C8F6005FF595 /* ToDoListDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ToDoListDomain; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				AA12C7992B0ACD0100A9757C /* ToDoListExampleAppTests.swift */,
+				AAC4785D2E05E5210074312F /* NewTaskViewModelTests.swift */,
 			);
 			path = ToDoListExampleAppTests;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC4785E2E05E5210074312F /* NewTaskViewModelTests.swift in Sources */,
 				AA12C79A2B0ACD0100A9757C /* ToDoListExampleAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

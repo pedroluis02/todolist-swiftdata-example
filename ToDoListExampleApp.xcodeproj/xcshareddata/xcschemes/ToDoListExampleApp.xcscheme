@@ -28,6 +28,28 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AA12C7942B0ACD0100A9757C"
+               BuildableName = "ToDoListExampleAppTests.xctest"
+               BlueprintName = "ToDoListExampleAppTests"
+               ReferencedContainer = "container:ToDoListExampleApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AA12C79E2B0ACD0100A9757C"
+               BuildableName = "ToDoListExampleAppUITests.xctest"
+               BlueprintName = "ToDoListExampleAppUITests"
+               ReferencedContainer = "container:ToDoListExampleApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
