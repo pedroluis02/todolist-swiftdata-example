@@ -20,7 +20,7 @@ struct TaskViewModelTests {
         let task = ToDoTask(name: "new-task", description: "new-task-desciption")
 
         viewModel.add(model: task)
-        await waitForTask(1)
+        await waitForTask()
 
         #expect(viewModel.items.count == 1)
     }
@@ -29,25 +29,25 @@ struct TaskViewModelTests {
         let task = ToDoTask(name: "new-task", description: "new-task-desciption")
 
         viewModel.add(model: task)
-        await waitForTask(1)
+        await waitForTask()
 
         viewModel.add(model: task)
-        await waitForTask(1)
+        await waitForTask()
 
         #expect(viewModel.items.count == 1)
     }
 
     @Test func testFindAll() async throws {
         viewModel.add(model: ToDoTask(name: "new-task-1", description: "new-task-desciption"))
-        await waitForTask(1)
+        await waitForTask()
 
         viewModel.add(model: ToDoTask(name: "new-task-2", description: "new-task-desciption"))
-        await waitForTask(1)
+        await waitForTask()
 
         #expect(viewModel.items.count == 2)
     }
 
-    private func waitForTask(_ milliseconds: Double) async {
+    private func waitForTask(_ milliseconds: Double = 1) async {
         try! await Task.sleep(for: .milliseconds(milliseconds))
     }
 
